@@ -1,0 +1,24 @@
+# === Dependencies ===
+node_modules/
+
+# === Environment Variables (NEVER commit these!) ===
+.env
+.env.local
+.env.production
+
+# === Logs ===
+logs/
+*.log
+npm-debug.log*
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === Editor Folders ===
+.vscode/
+.idea/
+
+# === Build Output ===
+dist/
+build/
