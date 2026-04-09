@@ -147,10 +147,11 @@ export const refresh = async (req, res, next) => {
 
     // Replace old token with new one in DB
     const hashedNew = await bcrypt.hash(newRefreshToken, 10);
-    user.refreshTokens = (user.refreshTokens || [])
-      .filter(async (h) => !(await bcrypt.compare(token, h)))
-      .concat(hashedNew);
-    user.refreshTokens = [hashedNew]; // Simplified: single active session
+    const remaining = [];
+    for (const h of (user.refreshTokens || [])) {
+      if (!(await bcrypt.compare(token, h))) remaining.push(h);
+    }
+    user.refreshTokens = [...remaining, hashedNew];
     await user.save();
 
     const tokens = sendTokens(res, newAccessToken, newRefreshToken);
