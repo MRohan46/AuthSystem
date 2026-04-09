@@ -81,8 +81,8 @@ auth-system/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/node-auth-system.git
-cd node-auth-system
+git clone https://github.com/MRohan46/AuthSystem
+cd AuthSystem
 ```
 
 ### 2. Install Dependencies
